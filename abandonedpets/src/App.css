@@ -1,0 +1,31 @@
+/* @import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css'); */
+@import url('https://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+  src:
+    url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix')
+      format('embedded-opentype'),
+    url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff')
+      format('woff'),
+    url('//fastly.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf')
+      format('truetype');
+}
+
+body {
+  font-family: 'NanumBarunGothic';
+  width: 100%;
+  min-height: 100vh;
+  font-size: 16px;
+
+  @media screen and (max-width: 1023px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 11px;
+  }
+}
