@@ -61,7 +61,7 @@ interface PetDetail {
 }
 
 function PetDetail() {
-  axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
+  // axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
 
   const { id } = useParams<{ id: string }>();
   const [petDetail, setPetDetail] = useState<PetDetail | null>(null);
@@ -72,14 +72,16 @@ function PetDetail() {
       try {
         const res = localStorage.getItem('userId')
           ? await axios.get<PetDetail>(
-              `/api/v1/pet_board/${id}?userId=${localStorage.getItem('userId')}`,
+              `https://dogcatworld.site:8080/api/v1/pet_board/${id}?userId=${localStorage.getItem('userId')}`,
               {
                 headers: {
                   access: localStorage.getItem('accessToken'),
                 },
               },
             )
-          : await axios.get<PetDetail>(`/api/v1/pet_board/${id}`);
+          : await axios.get<PetDetail>(
+              `https://dogcatworld.site:8080/api/v1/pet_board/${id}`,
+            );
 
         // const res = await axios.get(
         //   `/api/v1/pet_board/${id}?userid=${localStorage.getItem('userId')}`,

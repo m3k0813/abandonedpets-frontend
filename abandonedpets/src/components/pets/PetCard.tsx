@@ -15,6 +15,7 @@ const InfoDetail = styled.div`
 
 interface PetInfo {
   id: number;
+  desertionNo: number;
   name: number | string;
   age: string;
   sexCd: string;
@@ -99,7 +100,13 @@ function PetCard({ pet }: PetCardProps) {
               whiteSpace: 'nowrap',
             }}
           >
-            유기번호: {pet.name}
+            {pet.desertionNo ? (
+              <>
+                유기번호: [{pet.kindCd}]{pet.name}
+              </>
+            ) : (
+              <>{pet.name}</>
+            )}
           </Typography>
           <Typography variant="body2" color="text.secondary" component="div">
             <InfoDetail>분류: {pet.processState}</InfoDetail>

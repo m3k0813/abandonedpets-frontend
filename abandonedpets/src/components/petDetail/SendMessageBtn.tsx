@@ -34,7 +34,7 @@ const SendIng = styled.img`
 `;
 
 function SendMessageBtn({ chatInfo }: any) {
-  axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
+  // axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
 
   // const [stompClient, setStompClient] = useState<Client | null>(null);
   // const [chatRoomId, setChatRoomId] = useState(2); // 예시로 chatRoomId 2 설정
@@ -214,7 +214,7 @@ function SendMessageBtn({ chatInfo }: any) {
         try {
           let roomId = 0;
           const response = await axios.get(
-            `/api/v1/chatrooms/participants/${userId}`,
+            `https://dogcatworld.site:8080/api/v1/chatrooms/participants/${userId}`,
           );
           // console.log(response.data);
           response.data.forEach((item: any) => {

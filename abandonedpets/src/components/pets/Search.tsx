@@ -170,10 +170,6 @@ function Search({ onSearch }: SearchProps) {
       size: 12,
     };
     // 나이가 입력되지 않았을 경우, 검색 api를 실행하기 전에 막아버린다.
-    if (!minYear) {
-      alert('잘못된 검색입니다.');
-      return;
-    }
     onSearch(filterRequest);
     // console.log(filterRequest);
 

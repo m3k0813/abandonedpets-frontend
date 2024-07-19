@@ -50,7 +50,7 @@ interface SearchParams {
 }
 
 function DogList({ searchParams }: { searchParams: SearchParams }) {
-  axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
+  // axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
 
   const [pets, setPets] = useState<PetInfo[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -62,8 +62,8 @@ function DogList({ searchParams }: { searchParams: SearchParams }) {
       try {
         const endpoint =
           Object.keys(params).length === 0
-            ? `/api/v1/pet_board/list/type/고양이?page=${page - 1}&size=12`
-            : `/api/v1/pet_board/search`;
+            ? `https://dogcatworld.site:8080/api/v1/pet_board/list/type/고양이?page=${page - 1}&size=12`
+            : `https://dogcatworld.site:8080/api/v1/pet_board/search`;
 
         if (Object.keys(params).length === 0) {
           try {
