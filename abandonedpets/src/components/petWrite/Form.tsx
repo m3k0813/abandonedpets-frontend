@@ -242,7 +242,7 @@ const SubmitBtn = styled.span`
 `;
 
 function Form() {
-  // axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
+  axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
   const navigate = useNavigate();
 
   const [visibleInputs, setVisibleInputs] = useState<number>(1); // 이미지 리스트 길이
@@ -448,7 +448,7 @@ function Form() {
     // console.log(data.get('images'));
     try {
       await axios
-        .post('https://dogcatworld.site:8080/api/v1/pet_board/create', data, {
+        .post('/api/v1/pet_board/create', data, {
           headers: {
             'Content-Type': 'multipart/form-data',
             access: localStorage.getItem('accessToken'),

@@ -84,7 +84,7 @@ interface Form {
 const cookies = new Cookies();
 
 function LoginForm() {
-  // axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
+  axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
 
   const navigate = useNavigate();
   const [userForm, setUserForm] = useState<Form>({
@@ -103,7 +103,7 @@ function LoginForm() {
     try {
       e.preventDefault();
       const response = await axios.post(
-        `https://dogcatworld.site:8080/api/v1/users/login`,
+        `/api/v1/users/login`,
         {
           email: userForm.email,
           password: userForm.password,

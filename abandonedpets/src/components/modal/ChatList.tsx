@@ -46,7 +46,7 @@ interface Props {
 }
 
 function ChatList({ openChatRoom }: Props) {
-  // axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
+  axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
   const [chatRoomList, setChatRoomList] = useState<ChatRoom[]>();
 
   const userId = localStorage.getItem('userId');
@@ -55,7 +55,7 @@ function ChatList({ openChatRoom }: Props) {
     const loadChatRoomHistory = async () => {
       try {
         const response = await axios.get(
-          `https://dogcatworld.site:8080/api/v1/chatrooms/participants/${userId}`,
+          `/api/v1/chatrooms/participants/${userId}`,
           {
             headers: {
               access: localStorage.getItem('accessToken'),

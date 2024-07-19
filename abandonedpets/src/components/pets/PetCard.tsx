@@ -107,6 +107,7 @@ function PetCard({ pet }: PetCardProps) {
             ) : (
               <>{pet.name}</>
             )}
+            유기번호: {pet.name}
           </Typography>
           <Typography variant="body2" color="text.secondary" component="div">
             <InfoDetail>분류: {pet.processState}</InfoDetail>

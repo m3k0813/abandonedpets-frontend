@@ -73,7 +73,7 @@ interface userForm {
 }
 
 function RegisterForm() {
-  // axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
+  axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
 
   const navigate = useNavigate();
   const [form, setForm] = useState<userForm>({
@@ -95,7 +95,7 @@ function RegisterForm() {
 
     try {
       const response = await axios.post(
-        `https://dogcatworld.site:8080/api/v1/users/register`,
+        `/api/v1/users/register`,
         {
           username: form.name,
           email: form.email,

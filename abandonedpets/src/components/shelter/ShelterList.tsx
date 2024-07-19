@@ -120,7 +120,7 @@ const ShelterCard = memo(({ pet }: { pet: any }) => (
 ));
 
 function ShelterList() {
-  // axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
+  axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
 
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
     null,
@@ -133,14 +133,11 @@ function ShelterList() {
   useEffect(() => {
     const fetchShelters = async () => {
       try {
-        const res = await axios.get(
-          `https://dogcatworld.site:8080/api/v1/shelter_address`,
-          {
-            headers: {
-              access: localStorage.getItem('accessToken'),
-            },
+        const res = await axios.get(`/api/v1/shelter_address`, {
+          headers: {
+            access: localStorage.getItem('accessToken'),
           },
-        );
+        });
         const locationData: Location[] = res.data.map((shelter: Shelter) => ({
           title: shelter.name,
           latlng: {
@@ -165,7 +162,7 @@ function ShelterList() {
     setCurrentPage(1);
     try {
       const response = await axios.get(
-        `https://dogcatworld.site:8080/api/v1/shelter/${index}?&page=0&size=12`,
+        `/api/v1/shelter/${index}?&page=0&size=12`,
       );
       setSelectedLocation({ ...loc, data: response.data });
       setTotalPages(response.data.totalPages);
@@ -183,7 +180,7 @@ function ShelterList() {
     if (selectedIndex) {
       try {
         const response = await axios.get(
-          `https://dogcatworld.site:8080/api/v1/shelter/${selectedIndex}?&page=${value - 1}&size=12`,
+          `/api/v1/shelter/${selectedIndex}?&page=${value - 1}&size=12`,
         );
         setSelectedLocation((prev) =>
           prev ? { ...prev, data: response.data } : null,

@@ -64,7 +64,7 @@ function FavoriteBtn({ favInfo }: InfoProps) {
 
     if (isFavorite) {
       axios
-        .delete(`https://dogcatworld.site:8080/api/v1/bookmark`, {
+        .delete(`/api/v1/bookmark`, {
           data: {
             userId,
             petBoardId: favorite.petBoardId,
@@ -81,7 +81,7 @@ function FavoriteBtn({ favInfo }: InfoProps) {
     } else {
       axios
         .post(
-          `https://dogcatworld.site:8080/api/v1/bookmark`,
+          `/api/v1/bookmark`,
           {
             userId,
             petBoardId: favorite.petBoardId,
