@@ -9,7 +9,7 @@ import Fab from '@mui/material/Fab';
 import ChatIcon from '@mui/icons-material/Chat';
 import MenuIcon from '@mui/icons-material/Menu';
 import Logo from '../assets/Logo.png';
-import Chat from '../components/modal/Chat';
+import Chat from './modal/Chat';
 import ChatList from './modal/ChatList';
 
 const Wrapper = styled.div`

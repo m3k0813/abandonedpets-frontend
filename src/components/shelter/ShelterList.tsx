@@ -6,12 +6,8 @@ import {
   CardMedia,
   CardContent,
   Typography,
-  CardActions,
-  Button,
   Skeleton,
 } from '@mui/material';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import axios from 'axios';
 import SelectPage from './SelectPage';
 
@@ -108,14 +104,9 @@ const ShelterCard = memo(({ pet }: { pet: any }) => (
         <InfoDetail>분류: {pet.processState}</InfoDetail>
         <InfoDetail>나이: {pet.age}</InfoDetail>
         <InfoDetail>성별: {pet.sexCd}</InfoDetail>
-        <InfoDetail>품종: {pet.filename}</InfoDetail>
+        <InfoDetail>품종: {pet.popfile}</InfoDetail>
       </Typography>
     </CardContent>
-    <CardActions>
-      <Button>
-        {pet.bookMark ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-      </Button>
-    </CardActions>
   </Card>
 ));
 
