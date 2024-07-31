@@ -76,7 +76,7 @@ function Chat({ talkId, close, roomName }: ChatProps) {
 
     const connect = () => {
       // const socket = new WebSocket(`ws://localhost:8080/ws`);
-      const socket = new WebSocket(`ws://dogcatworld.site:8080/ws`);
+      const socket = new WebSocket(`wss://dogcatworld.site:8080/ws`);
       stompClient.current = Stomp.over(socket);
       stompClient.current.connect({}, () => {
         console.log('서버 연결 성공');
