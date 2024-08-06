@@ -110,9 +110,11 @@ function RegisterForm() {
       );
       alert(response.data.message);
       navigate('/login');
-    } catch (err) {
+    } catch (err: any) {
       console.log(err);
-      alert('회원가입 실패');
+      const errMsg = err.response.data.errorMessage;
+      // console.log(err.response.data.errorMessage);
+      alert(errMsg);
     }
   };
 
