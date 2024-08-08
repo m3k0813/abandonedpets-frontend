@@ -78,8 +78,8 @@ interface FuneralProps {
 
 // 컴포넌트 정의
 function FuneralList() {
-  // axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
-  const FUNERAL_URL = import.meta.env.VITE_APP_FUNERAL_URL;
+  axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL;
+  // const FUNERAL_URL = import.meta.env.VITE_APP_FUNERAL_URL;
 
   const [selectedRegion, setSelectedRegion] = useState('');
   const [filteredFunerals, setFilteredFunerals] = useState<FuneralProps[]>([]);
@@ -89,7 +89,7 @@ function FuneralList() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get(`${FUNERAL_URL}/api/v1/pet-funeral`, {
+        const res = await axios.get(`/api/v1/pet-funeral`, {
           headers: {
             access: localStorage.getItem('accessToken'),
           },

@@ -93,6 +93,12 @@ function RegisterForm() {
   const submitHandler = async (e: FormEvent) => {
     e.preventDefault();
 
+    // console.log(form.password.length);
+    if (form.password.length < 8 || form.password.length > 20) {
+      alert('비밀번호는 8자 이상, 20자 이하로 입력해주세요.');
+      return;
+    }
+
     try {
       const response = await axios.post(
         `/api/v1/users/register`,
