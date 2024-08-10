@@ -44,7 +44,8 @@ function ListItem({ chat, openChatRoom, onRemoveRoom }: ListProps) {
   useEffect(() => {
     const connect = () => {
       // const socket = new WebSocket(`ws://localhost:8080/ws`);
-      const socket = new WebSocket(`wss://api.dogcatworld.site/ws`);
+      // const socket = new WebSocket(`wss://api.dogcatworld.site/ws`);
+      const socket = new WebSocket(`wss://dogcatworld.site/ws`);
       stompClient.current = Stomp.over(socket);
       stompClient.current.connect({}, () => {
         console.log('채팅 서버 연결 완료');

@@ -55,7 +55,9 @@ function SendMessageBtn({ chatInfo }: any) {
 
     const connect = () => {
       // const socket = new WebSocket(`ws://localhost:8080/ws`);
-      const socket = new WebSocket(`wss://api.dogcatworld.site/ws`);
+      const socket = new WebSocket(`wss://dogcatworld.site/ws`);
+      // const socket = new WebSocket(`wss://api.dogcatworld.site/ws`);
+      // const socket = new WebSocket(`ws://localhost:8080/ws`);
       stompClient.current = Stomp.over(socket);
       stompClient.current.connect({}, () => {
         // console.log('서버연결 성공');
